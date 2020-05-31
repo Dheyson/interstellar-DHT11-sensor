@@ -2,6 +2,7 @@ import React from 'react';
 
 import * as S from './styles';
 import RealTime from '../RealTimeData';
+import LogData from '../LogData';
 
 const Main = () => {
 	return (
@@ -11,7 +12,7 @@ const Main = () => {
 			</S.Title>
 			<S.WrapperData>
 				<RealTime/>
-				<RealTime/>
+				<LogData/>
 			</S.WrapperData>
 		</S.MainContainer>
 	);
