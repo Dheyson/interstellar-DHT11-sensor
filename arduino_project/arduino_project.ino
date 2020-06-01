@@ -36,8 +36,7 @@ DHT_Unified dht(DHTPIN, DHTTYPE);
 
 uint32_t delayMS;
 
-void setup()
-{
+void setup() {
 	Serial.begin(9600);
 	Serial.println("Start");
 	lcd.begin(16, 2);
@@ -50,8 +49,7 @@ void setup()
 	delayMS = sensor.min_delay / 1000;
 }
 
-void loop()
-{
+void loop() {
 	lcd.setCursor(0, 1);
 	float fahrenheitTemperature, celsiusTemperature, humidity;
 
@@ -83,14 +81,12 @@ void loop()
 		}
 
 		// Get humidity event and print its value.
-		if (isnan(event.relative_humidity))
-		{
+		if (isnan(event.relative_humidity)) {
 			Serial.println(F("Error reading humidity!"));
 			delay(200);
 			lcd.print('Humidity error');
 		}
-		else
-		{
+		else {
 			Serial.print(F("Humidity: "));
 			Serial.print(event.relative_humidity);
 			Serial.println(F("%"));
@@ -107,11 +103,9 @@ void loop()
 	}
 }
 
-int connectWiFi()
-{
+int connectWiFi() {
 
-	while (WiFi.status() != WL_CONNECTED)
-	{
+	while (WiFi.status() != WL_CONNECTED) {
 		WiFi.begin(ssid, password);
 		delay(2500);
 		lcd.print("Start connection");
@@ -122,8 +116,7 @@ int connectWiFi()
 	ThingSpeak.begin(client);
 }
 
-float readTSData(long TSChannel, unsigned int TSField)
-{
+float readTSData(long TSChannel, unsigned int TSField) {
 
 	float data = ThingSpeak.readFloatField(TSChannel, TSField, readAPIKey);
 	Serial.println(" Data read from ThingSpeak: " + String(data, 9));
@@ -131,11 +124,9 @@ float readTSData(long TSChannel, unsigned int TSField)
 }
 
 // Use this function if you want to write a single field.
-int writeTSData(long TSChannel, unsigned int TSField, float data)
-{
+int writeTSData(long TSChannel, unsigned int TSField, float data) {
 	int writeSuccess = ThingSpeak.writeField(TSChannel, TSField, data, writeAPIKey); // Write the data to the channel
-	if (writeSuccess)
-	{
+	if (writeSuccess) {
 
 		Serial.println(String(data) + " written to Thingspeak.");
 		lcd.print("written to TS db.")
@@ -145,8 +136,7 @@ int writeTSData(long TSChannel, unsigned int TSField, float data)
 }
 
 // Use this function if you want to write multiple fields simultaneously.
-int write2TSData(long TSChannel, unsigned int TSField1, float field1Data, unsigned int TSField2, long field2Data, unsigned int TSField3, float field3Data, unsigned int TSField4, long field4Data, )
-{
+int write2TSData(long TSChannel, unsigned int TSField1, float field1Data, unsigned int TSField2, long field2Data, unsigned int TSField3, float field3Data, unsigned int TSField4, long field4Data ) {
 
 	ThingSpeak.setField(TSField1, field1Data);
 	ThingSpeak.setField(TSField2, field2Data);
