@@ -2,10 +2,15 @@ require('dotenv').config();
 
 const axios = require('axios').default;
 
+const ID = 1064896;
+
 const instance = axios.create({
 	baseURL: 'https://api.thingspeak.com/',
 	timeout: 1000,
-	headers: { 'X-Custom-Header': 'foobar' }
+	headers: {
+		'Access-Control-Allow-Origin':'*',
+		'Content-Type': 'application/x-www-form-urlencoded'
+	}
 });
 
 function getPublicChannels() {
@@ -19,7 +24,7 @@ function getPublicChannels() {
 }
 
 function getFieldById(fieldId) {
-	return instance.get(`channels/${process.env.CHANNEL_ID}/${fieldId}.json`)
+	return instance.get(`channels/${ID}/${fieldId}.json`)
 		.then(function (response) {
 			console.log(response);
 		})
@@ -47,10 +52,5 @@ function getData() {
 			console.log(error);
 		})
 }
-
-axios.all([getPublicChannels(), getFieldById(), getCurrentStatus(), getData()])
-	.then(axios.spread(function (acct, perms) {
-		// Both requests are now complete
-	}));
 
 module.exports = { getFieldById, getPublicChannels, getCurrentStatus, getData };
