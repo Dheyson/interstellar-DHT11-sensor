@@ -7,31 +7,16 @@ const RealTimeData = () => {
 	return (
 		<S.Container>
 			<S.Title>
-				Login data
+				Log data
 			</S.Title>
-			<S.Table>
-				<tr>
-					<th>Company</th>
-					<th>Contact</th>
-					<th>Country</th>
-					<th>Country</th>
-				</tr>
-				<tr>
-					<td>Alfreds Futterkiste</td>
-					<td>Maria Anders</td>
-					<td>Germany</td>
-				</tr>
-				<tr>
-					<td>Centro comercial Moctezuma</td>
-					<td>Francisco Chang</td>
-					<td>Mexico</td>
-				</tr>
-				<tr>
-					<td>Ernst Handel</td>
-					<td>Roland Mendel</td>
-					<td>Austria</td>
-				</tr>
-			</S.Table>
+			<S.TablesContainer>
+				<S.Iframe src="https://thingspeak.com/channels/1064896/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Temperature%28C%29&type=column"></S.Iframe>
+				<S.Iframe src="https://thingspeak.com/channels/1064896/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Temperature%28F%29&type=line"></S.Iframe>
+			</S.TablesContainer>
+			<S.TablesContainer>
+				<S.Iframe src="https://thingspeak.com/channels/1064896/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Humidity+Status&type=line"></S.Iframe>
+				<S.Iframe src="https://thingspeak.com/channels/1064896/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Millis+time&type=line"></S.Iframe>
+			</S.TablesContainer>
 		</S.Container>
 	);
 }
