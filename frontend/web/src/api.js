@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const axios = require('axios').default;
 
 const instance = axios.create({
@@ -51,4 +53,4 @@ axios.all([getPublicChannels(), getFieldById(), getCurrentStatus(), getData()])
 		// Both requests are now complete
 	}));
 
-module.exports = [getFieldById, getPublicChannels, getCurrentStatus, getData];
+module.exports = { getFieldById, getPublicChannels, getCurrentStatus, getData };
