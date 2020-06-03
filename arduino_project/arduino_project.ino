@@ -20,6 +20,8 @@ unsigned int dataFieldTwo = 2;	 // Field to write humidity data
 unsigned int dataFieldThree = 3; // Field to write elapsed time data
 unsigned int dataFieldFour = 4;	 // Field to write elapsed time data
 
+unsigned int dataFieldLed = 5;
+
 unsigned long lastConnectionTime = 0;
 long lastUpdateTime = 0;
 WiFiClient client;
@@ -50,6 +52,9 @@ void setup() {
 }
 
 void loop() {
+
+	onled();
+
 	lcd.setCursor(0, 1);
 	float fahrenheitTemperature, celsiusTemperature, humidity;
 
@@ -101,6 +106,25 @@ void loop() {
 
 		write2TSData(channelID, dataFieldOne, celsiusTemperature, dataFieldTwo, fahrenheitTemperature,  dataFieldThree, humidity, dataFieldFour, millis()); // Write the temperature in F, C, and time since starting.
 	}
+}
+
+float onled() {
+	 
+	pinMode(dataFieldLed, OUTPUT); 
+  	digitalWrite(dataFieldLed, 0);
+
+	float resp = readTSData(channelID, dataFieldLed);
+
+	if ( resp == 1 ) {
+		digitalWrite(dataFieldLed, 1);
+		writeTSData(channelID, dataFieldLed, 0);
+		Serial.println('Led on'));
+		
+	} else if (resp == 0) {
+		digitalWrite(dataFieldLed, 0);
+		writeTSData(channelID, dataFieldLed, 1);
+		Serial.println('led off');
+	}  
 }
 
 int connectWiFi() {
