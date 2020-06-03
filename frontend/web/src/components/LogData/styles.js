@@ -35,6 +35,10 @@ export const TablesContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 
+	@media (min-width: 900px) {
+		flex-direction: row;
+	}
+
 	@media (min-width: 1440px) {
     flex-direction: row;
 	}

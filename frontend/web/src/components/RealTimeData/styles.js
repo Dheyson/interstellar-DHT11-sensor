@@ -32,6 +32,12 @@ export const DataContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 
+		@media (min-width: 800px) {
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 10px;
+		}
+
 	@media (min-width: 1440px) {
     flex-direction: row;
 	}
