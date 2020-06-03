@@ -24,11 +24,12 @@ export const DataTitle = styled.h2`
 	color: #D7D9CE;
 	flex: 1.5;
 	padding-right: 10px;
-
+	text-transform: uppercase;
 	@media (min-width: 1440px) {
-		font-size: 18px;
+		font-size: 16px;
 		line-height: 27px;
-		text-align: start;
+		text-align: ${props => props.align || 'start'};
+		width: 100%;
 	}
 
 `;

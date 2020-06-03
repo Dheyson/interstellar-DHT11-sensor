@@ -6,7 +6,7 @@ const SmallData = ({ fieldText, value, align }) => {
 
 	return (
 		<S.DataInfo>
-			<S.DataTitle>
+			<S.DataTitle align={align}>
 				{fieldText}
 			</S.DataTitle>
 			<S.Data align={align}>

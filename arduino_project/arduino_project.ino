@@ -15,12 +15,11 @@ char *writeAPIKey = "YYYYYYYYYYYYYYYY";
 
 const unsigned long postingInterval = 120L * 1000L;
 
-unsigned int dataFieldOne = 1;	 // Field to write temperature data
-unsigned int dataFieldTwo = 2;	 // Field to write humidity data
-unsigned int dataFieldThree = 3; // Field to write elapsed time data
-unsigned int dataFieldFour = 4;	 // Field to write elapsed time data
-
-unsigned int dataFieldLed = 5;
+unsigned int dataFieldOne = 1;	 // Field to write temperature celsius data
+unsigned int dataFieldTwo = 2;	 // Field to write temperature farenheit data
+unsigned int dataFieldThree = 3; // Field to write humidity 
+unsigned int dataFieldFour = 4;	 // Fielt to millis time
+unsigned int dataFieldLed = 5; // field to air-condicioner state
 
 unsigned long lastConnectionTime = 0;
 long lastUpdateTime = 0;
@@ -112,6 +111,7 @@ void loop()
 	}
 }
 
+// set the led state
 float onled()
 {
 
@@ -134,6 +134,7 @@ float onled()
 	}
 }
 
+// Connect to wifi status
 int connectWiFi()
 {
 
