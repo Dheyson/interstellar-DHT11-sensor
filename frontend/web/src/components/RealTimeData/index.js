@@ -72,8 +72,7 @@ export default class RealTimeData extends React.Component {
 					<SmallData fieldText={channels.field2} value={field2 || 'IsEmpty'} />
 				</S.DataContainer>
 				<S.DataContainer>
-					<SmallData fieldText={channels.field3} value={field3 || 'IsEmpty'} />
-					<SmallData fieldText={channels.field4} value={field4 || 'IsEmpty'} />
+					<SmallData fieldText={channels.field3} value={field3 || 'IsEmpty'} align="center" />
 				</S.DataContainer>
 			</S.Container>
 		);

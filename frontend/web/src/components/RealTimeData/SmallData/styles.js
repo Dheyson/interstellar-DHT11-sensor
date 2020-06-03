@@ -20,6 +20,7 @@ export const DataTitle = styled.h2`
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 27px;
+	text-align: center;
 	color: #D7D9CE;
 	flex: 1.5;
 	padding-right: 10px;
@@ -43,7 +44,7 @@ export const Data = styled.h1`
 
 		@media (min-width: 1440px) {
 		font-size: 42px;
-		text-align: start;
+		text-align: ${props => props.align || 'start'};
 		width: 100%;
 
 	}
