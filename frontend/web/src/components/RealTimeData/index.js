@@ -14,17 +14,15 @@ const RealTimeData = () => {
 		async function fetchData() {
 			await axios.get(`https://api.thingspeak.com/channels/1064896/fields/1.json`)
 				.then(res => {
-					const values = res.data;
+					const values = res.data.feeds;
 					setData({ values });
-					console.log(values);
 				})
 		}
 		fetchData();
 	}, []);
 
 	function handleData() {
-		console.log(data.channel);
-
+		console.log(data);
 	}
 
 	return (
