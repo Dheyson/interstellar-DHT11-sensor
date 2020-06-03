@@ -4,6 +4,8 @@ import axios from 'axios';
 import * as S from './styles';
 import RealTime from '../RealTimeData';
 import LogData from '../LogData';
+import AirCondicionerButton from '../AirCondicionerButton';
+
 
 const Main = () => {
 	const [data, setData] = useState([]);
