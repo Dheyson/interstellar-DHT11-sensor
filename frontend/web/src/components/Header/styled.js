@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const HeadContainer = styled.header`
 	display: flex;
 	justify-content: space-around;
-	background-color: #FF9649;
+	background-color: #0004;
 	align-items: center;
+	height: 100px;
 	box-sizing: border-box;
 	box-shadow: 0px 10px 1px rgba(90, 227, 255, 0.5);
 `;
@@ -29,7 +30,7 @@ export const Subtitle = styled.h2`
 	font-weight: bold;
 	font-size: 12px;
 	line-height: 18px;
-	color: #04052E;
+	color: #ffff;
 	padding-right: 20px;
 	padding-left: 20px;
 	text-transform: uppercase;
