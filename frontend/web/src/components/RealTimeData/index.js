@@ -61,7 +61,7 @@ export default class RealTimeData extends React.Component {
 
 	render() {
 		const { channels, field1, field2, field3, field4 } = this.state;
-		const parse = typeof channels.field1;
+		const parse =  field1;
 		console.log(parse);
 
 		return (
@@ -70,7 +70,7 @@ export default class RealTimeData extends React.Component {
 					Real time data
 			</S.Title>
 				<S.DataContainer>
-					<SmallData fieldText={channels.field1} value={channels.field1 || 'IsEmpty'} />
+					<SmallData fieldText={channels.field1} value={field1 || 'IsEmpty'} />
 					<SmallData fieldText={channels.field2} value={field2 || 'IsEmpty'} />
 				</S.DataContainer>
 				<S.DataContainer>

@@ -26,4 +26,8 @@ function getData(channelId) {
 	return instance.get(`channels/${channelId}/feeds.json`);
 }
 
-module.exports = { getFieldById, getPublicChannels, getCurrentStatus, getData };
+function postData(url) {
+	return instance.post(url);
+}
+
+module.exports = { getFieldById, getPublicChannels, getCurrentStatus, getData, postData };

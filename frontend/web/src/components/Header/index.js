@@ -2,7 +2,7 @@ import React from 'react';
 
 import * as S from './styled';
 
-import RadioButton from '../AirCondicionerButton'
+import AirCondicionerButton from '../AirCondicionerButton'
 
 const Header = () => {
 	return (
@@ -13,7 +13,7 @@ const Header = () => {
 					<S.Subtitle>
 						Air-condicioner:
 				</S.Subtitle>
-					<RadioButton />
+					<AirCondicionerButton />
 				</S.Wrapper>
 			</S.infoWrapper>
 		</S.HeadContainer>
