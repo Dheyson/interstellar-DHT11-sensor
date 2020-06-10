@@ -8,21 +8,22 @@ const AirCondicionerButton = () => {
 	const [value, setValue] = useState("off");
 	const [ledValue, setLedValue] = useState(0);
 
-	function handleCheck(e) {
+	async function handleCheck(e) {
 		e.preventDefault();
 		if (value === "on") {
 			setValue("off");
 			setLedValue(0);
-			api.postData('https://api.thingspeak.com/update.json');
+			await api.postData(`https://api.thingspeak.com/update.json?api_key=M2B1M9211M8THGMG&field8="123"`);
 		} else {
 			setValue("on");
 			setLedValue(1);
-			api.postData('https://api.thingspeak.com/update.json');
+			await api.postData(`https://api.thingspeak.com/update.json?api_key=M2B1M9211M8THGMG&field8=${ledValue}`);
 		}
 	}
 
 	useEffect(() => {
-		console.log(ledValue);
+		// Call the data when load the component
+		api.postData(`https://api.thingspeak.com/update.json?api_key=M2B1M9211M8THGMG&field8="123"`);
 	}, []);
 
 	return (
