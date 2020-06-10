@@ -61,8 +61,6 @@ export default class RealTimeData extends React.Component {
 
 	render() {
 		const { channels, field1, field2, field3, field4 } = this.state;
-		const parse =  field1;
-		console.log(parse);
 
 		return (
 			<S.Container>
