@@ -13,10 +13,11 @@ const AirCondicionerButton = () => {
 		if (value === "on") {
 			setValue("off");
 			setLedValue(0);
-			api.postData('https://api.thingspeak.com/update.json')
+			api.postData('https://api.thingspeak.com/update.json');
 		} else {
 			setValue("on");
 			setLedValue(1);
+			api.postData('https://api.thingspeak.com/update.json');
 		}
 	}
 
